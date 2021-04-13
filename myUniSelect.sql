@@ -1,5 +1,5 @@
 USE test;
--- Need hyphens in constant
-SELECT OfferNo, Offering.Courseno, Offdays,
-	CrsUnits, Offlocation, Offtime
-FROM Faculty, Course, Offering
+
+SELECT OfferNo, CourseNo 
+  FROM Offering 
+  WHERE FacNo IS NULL AND OffTerm = 'SUMMER' AND OffYear = 2017;
