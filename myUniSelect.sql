@@ -1,5 +1,5 @@
 USE test;
 -- Need hyphens in constant
- SELECT *
-  FROM Faculty
-  WHERE FacNo = '543-21-0987';
+SELECT OfferNo, Offering.Courseno, Offdays,
+	CrsUnits, Offlocation, Offtime
+FROM Faculty, Course, Offering
