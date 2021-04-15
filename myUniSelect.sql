@@ -1,5 +1,7 @@
 USE test;
 
-SELECT OfferNo, CourseNo 
-  FROM Offering 
-  WHERE FacNo IS NULL AND OffTerm = 'SUMMER' AND OffYear = 2017;
+SELECT StdMajor, AVG(StdGPA) AS AvgGpa 
+ FROM Student
+ WHERE StdClass IN ('JR', 'SR')
+ GROUP BY StdMajor
+ HAVING AVG(StdGPA) > 3.1;
