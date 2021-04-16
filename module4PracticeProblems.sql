@@ -18,7 +18,7 @@ ORDER BY dateheld;
 -- Problem 4
 SELECT eventno, dateheld, estaudience, status
 FROM EventRequest
-WHERE estaudience > 9000 OR (status = "pending" AND estaudience > 7000);
+WHERE (status = "approved" AND estaudience > 9000) OR (status = "pending" AND estaudience > 7000);
 
 -- Problem 5
 -- Join from customer and event request table
@@ -36,8 +36,9 @@ SELECT planno, AVG(numberfld) as avgnumber
     GROUP BY planno;
     
 -- Problem 7
-SELECT planno, AVG(numberfld) as avgnumber
-	FROM Eventplanlines
-    WHERE locno = "L100"
-		AND numberfld > 2
-    GROUP BY planno;
+SELECT PlanNo, AVG(NumberFld) AS AvgNumResources, 
+COUNT(*) AS NumEventLines
+  FROM EventPlanLine
+  WHERE LocNo = 'L100'
+  GROUP BY PlanNo
+  HAVING COUNT(*) > 1;
