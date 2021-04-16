@@ -34,3 +34,10 @@ SELECT planno, AVG(numberfld) as avgnumber
 	FROM Eventplanlines
     WHERE locno = "L100"
     GROUP BY planno;
+    
+-- Problem 7
+SELECT planno, AVG(numberfld) as avgnumber
+	FROM Eventplanlines
+    WHERE locno = "L100"
+		AND numberfld > 2
+    GROUP BY planno;
