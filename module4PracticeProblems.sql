@@ -23,7 +23,14 @@ WHERE estaudience > 9000 OR (status = "pending" AND estaudience > 7000);
 -- Problem 5
 -- Join from customer and event request table
 -- we need to grab the customer names /cities using the custno
-SELECT eventno, dateheld, datereq, custno
-	FROM EventRequest, Customer
-	WHERE datereq > "2018-01-01"
-		AND Customer.custno = EventRequest.custno;
+SELECT eventno, dateheld, datereq, custno, city
+	FROM EventRequest
+    NATURAL JOIN Customer
+	WHERE datereq > '2008-01-01'
+		AND city = "Boulder";
+    
+-- Problem 6
+SELECT planno, AVG(numberfld) as avgnumber
+	FROM Eventplanlines
+    WHERE locno = "L100"
+    GROUP BY planno;
