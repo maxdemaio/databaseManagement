@@ -32,3 +32,11 @@ SELECT CustNo, AVG(CustBal) AS AvgCustBal, CustCity, CustState
   FROM Customer
   WHERE CustState = "WA"
   GROUP BY CustCity;
+
+-- Problem 7
+SELECT *, COUNT(*), AVG(CustBal) AS AvgCustBal
+  FROM Customer
+  WHERE CustState = "WA"
+  GROUP BY CustCity
+  HAVING COUNT(*) > 1;
+  
