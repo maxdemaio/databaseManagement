@@ -1,4 +1,4 @@
--- CREATE DATABASE Orders;
+CREATE DATABASE OrdersTutorial;
 USE Orders;
 
 CREATE TABLE Customer ( 
@@ -17,7 +17,7 @@ CREATE TABLE Employee(
 	EmpFirstName VARCHAR(20) NOT NULL,
 	EmpLastName VARCHAR(30) NOT NULL,
 	EmpPhone		 CHAR(15),
-	EmpEMail		 VARCHAR(50) NOT NULL UNIQUE,
+	EmpEMail		 VARCHAR(50) NOT NULL,
 	CONSTRAINT PKEmployee PRIMARY KEY (EmpNo),
 	CONSTRAINT UniqueEMail UNIQUE (EmpEMail) 
 );
