@@ -6,3 +6,6 @@ SELECT distinct
 FROM Customer;
 
 -- Problem 2
+SELECT empname, department, email, phone
+FROM Employee
+WHERE phone LIKE '3-%';
