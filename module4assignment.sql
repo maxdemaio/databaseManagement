@@ -21,3 +21,9 @@ SELECT *
 FROM Eventrequest
 WHERE dateauth BETWEEN CAST('2018-07-01' AS DATE) AND CAST('2018-07-31' AS DATE);
 
+-- Problem 5
+SELECT *
+FROM Location
+NATURAL JOIN Facility
+WHERE facname = "Basketball arena";
+
