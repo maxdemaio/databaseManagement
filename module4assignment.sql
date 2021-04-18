@@ -9,3 +9,9 @@ FROM Customer;
 SELECT empname, department, email, phone
 FROM Employee
 WHERE phone LIKE '3-%';
+
+-- Problem 3
+SELECT *
+FROM Resourcetable
+WHERE rate BETWEEN 	10 and 20
+ORDER BY rate;
