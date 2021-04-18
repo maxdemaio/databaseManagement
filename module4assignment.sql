@@ -27,3 +27,7 @@ FROM Location
 NATURAL JOIN Facility
 WHERE facname = "Basketball arena";
 
+-- Problem 6
+SELECT planno, count(planno) AS count_of_plan_lines, sum(numberfld) AS sum_of_number_of_resources
+FROM eventplanlines
+GROUP BY planno;
