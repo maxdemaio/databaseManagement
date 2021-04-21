@@ -18,3 +18,10 @@ WHERE Eventrequest.Custno = Customer.Custno
 	AND EventRequest.FacNo = Facility.FacNo
 	AND EstCost/EstAudience < 0.2
     AND YEAR(dateheld) = '2018';
+    
+-- Problem 3
+SELECT Customer.CustNo, CustName, SUM(EstCost) AS TotEstCost
+  FROM EventRequest, Customer
+  WHERE Status = 'Approved'
+        AND EventRequest.CustNo = Customer.CustNo
+  GROUP BY Customer.CustNo, CustName;
