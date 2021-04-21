@@ -1,8 +1,12 @@
 USE test;
 
-SELECT CourseNo, Enrollment.OfferNo, 
-       Count(*) AS NumStudents
- FROM Offering, Enrollment
+SELECT Enrollment.OfferNo, CourseNo, FacFirstName, 
+       FacLastName, AVG(StdGPA) AS AvgGPA
+ FROM Offering, Enrollment, Student, Faculty
  WHERE Offering.OfferNo = Enrollment.OfferNo
-   AND OffYear = 2017 AND OffTerm = 'SPRING' 
- GROUP BY Enrollment.OfferNo, CourseNo;
+   AND Student.StdNo = Enrollment.StdNo
+   AND Faculty.FacNo = Offering.FacNo    
+   AND OffYear = 2016 AND OffTerm = 'FALL' 
+ GROUP BY Enrollment.OfferNo, CourseNo, 
+       FacFirstName, FacLastName
+ HAVING AVG(StdGPA) > 3.0;
