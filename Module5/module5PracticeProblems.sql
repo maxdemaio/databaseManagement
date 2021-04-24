@@ -34,7 +34,7 @@ WHERE Custno = "C999";
 INSERT INTO Customer (CustNo, CustName, Address, Internal, Contact, Phone, City, State, Zip)
 VALUES ("C999", "MMA", "Box 3445", "N", "Joe Rogan", 685699, "Las Vegas", "NV", 80977);
 
--- Problem 5
+-- Problem 5S
 SET SQL_SAFE_UPDATES = 0;
 
 UPDATE Resourcetable
