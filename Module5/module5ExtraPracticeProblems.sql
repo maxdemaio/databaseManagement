@@ -33,3 +33,14 @@ SELECT OrderTbl.OrdNo, SUM(Qty*ProdPrice) AS TotOrdAmt
         AND OrderTbl.OrdNo = OrdLine.OrdNo
         AND OrdLine.ProdNo = Product.ProdNo
   GROUP BY OrderTbl.OrdNo;
+
+-- Problem 4
+-- Note: Have to have all non operation cols in the Group By statement
+SELECT OrderTbl.OrdNo, SUM(Qty*ProdPrice) AS TotOrdAmt,
+	Customer.CustNo, CustFirstName, CustLastName
+  FROM OrderTbl, OrdLine, Product, Customer
+  WHERE OrdDate = '2017-01-23'
+        AND OrderTbl.OrdNo = OrdLine.OrdNo
+        AND ordertbl.CustNo = customer.CustNo
+        AND OrdLine.ProdNo = Product.ProdNo
+  GROUP BY OrderTbl.OrdNo, CustFirstName, CustLastName;
