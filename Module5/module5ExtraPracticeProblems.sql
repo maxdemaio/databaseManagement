@@ -2,7 +2,7 @@
 USE orders;
 
 -- Quick test
-SELECT * FROM customer;
+SELECT * FROM ordertbl;
 
 -- Problem 1
 SELECT OrdNo, OrdDate, Customer.CustNo, CustFirstName, CustLastName,
@@ -24,3 +24,12 @@ SELECT OrdDate, Customer.CustNo, CustFirstName, CustLastName,
         AND ordertbl.OrdNo = ordline.OrdNo
         AND ordline.ProdNo = product.ProdNo;
 
+-- Problem 3
+-- OrderTbl has OrdNos unique, so when we take the sum from the orderline table,
+-- we grab all quantities and sum them for each unique ordno (multiple exist)
+SELECT OrderTbl.OrdNo, SUM(Qty*ProdPrice) AS TotOrdAmt
+  FROM OrderTbl, OrdLine, Product
+  WHERE OrdDate = '2017-01-23'
+        AND OrderTbl.OrdNo = OrdLine.OrdNo
+        AND OrdLine.ProdNo = Product.ProdNo
+  GROUP BY OrderTbl.OrdNo;
