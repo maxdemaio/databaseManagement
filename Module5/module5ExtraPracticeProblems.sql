@@ -13,4 +13,14 @@ SELECT OrdNo, OrdDate, Customer.CustNo, CustFirstName, CustLastName,
 		AND ordertbl.EmpNo = employee.EmpNo;
 
 -- Problem 2
+SELECT OrdDate, Customer.CustNo, CustFirstName, CustLastName,
+		Employee.EmpNo, EmpFirstName, EmpLastName,
+        Ordline.OrdNo,
+        Product.ProdNo, ProdName, (ProdPrice * Qty) AS OrderCost
+	FROM ordertbl, customer, employee, ordline, product
+	WHERE OrdDate = '2017-01-23' AND (ProdPrice * Qty) > 150
+		AND ordertbl.CustNo = customer.CustNo
+		AND ordertbl.EmpNo = employee.EmpNo
+        AND ordertbl.OrdNo = ordline.OrdNo
+        AND ordline.ProdNo = product.ProdNo;
 
