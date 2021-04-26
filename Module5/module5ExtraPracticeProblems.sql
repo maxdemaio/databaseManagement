@@ -44,3 +44,9 @@ SELECT OrderTbl.OrdNo, SUM(Qty*ProdPrice) AS TotOrdAmt,
         AND ordertbl.CustNo = customer.CustNo
         AND OrdLine.ProdNo = Product.ProdNo
   GROUP BY OrderTbl.OrdNo, CustFirstName, CustLastName;
+  
+-- Problem 4
+INSERT INTO customer
+	(CustNo, CustFirstName, CustLastName, CustStreet, 
+		CustCity, CustState, CustZip, CustBal)
+VALUES ("999", "Max", "DeMaio", "Princeton", "Newport", "CT", "02888", 999);
