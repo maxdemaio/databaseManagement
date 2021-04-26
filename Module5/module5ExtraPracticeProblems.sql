@@ -52,7 +52,22 @@ SELECT OrderTbl.OrdNo, SUM(Qty*ProdPrice) AS TotOrdAmt,
 -- VALUES ("999", "Max", "DeMaio", "Princeton", "Newport", "CT", "02888", 999);
 
 -- Problem 6
-INSERT INTO employee
-	(EmpNo, EmpFirstName, EmpLastName, EmpPhone, 
-		EmpEMail, SupEmpNo, EmpCommRate)
-VALUES ("77665432", "Max", "DeMaio", "860666", "max@max.com", NULL, 0.030);
+-- INSERT INTO employee
+-- 	(EmpNo, EmpFirstName, EmpLastName, EmpPhone, 
+-- 		EmpEMail, SupEmpNo, EmpCommRate)
+-- VALUES ("77665432", "Max", "DeMaio", "860666", "max@max.com", NULL, 0.030);
+
+-- Problem 7 
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE product 
+  SET ProdPrice = ProdPrice * 1.1 
+  WHERE ProdName LIKE '%Ink Jet%';
+
+-- Problem 8 
+DELETE FROM Customer
+  WHERE CustNo = '999';
+DELETE FROM Employee
+  WHERE EmpNo = '77665432';
+
+SET SQL_SAFE_UPDATES = 1;
