@@ -24,3 +24,23 @@ SELECT eventrequest.eventno, eventplans.planno,
     WHERE eventrequest.eventno = eventplans.eventno
 		AND eventrequest.facno = facility.facno
         AND facname = "Basketball arena";
+
+-- Problem 3
+-- List the event number, event date, status, and estimated cost of events where 
+-- there is an event plan managed by Mary Manager and the event is held in the basketball arena 
+-- in the period October 1 to December 31, 2018.  
+-- Your query must not use the facility number (“F101”) of the basketball arena 
+-- or the employee number (“E101”) of “Mary Manager” in the WHERE clause. 
+-- Thus, the WHERE clause should not have conditions involving the facility number or employee number compared to constant values.
+SELECT eventrequest.eventno, dateheld, status, estcost,
+		eventplans.planno, eventplans.workdate, eventplans.activity, 
+        facility.facname,
+        employee.empname
+	FROM eventrequest, eventplans, facility, employee
+    WHERE eventrequest.eventno = eventplans.eventno
+		AND eventrequest.facno = facility.facno
+        AND eventplans.empno = employee.empno
+        AND facname = "Basketball arena"
+        AND empname = "Mary Manager";
+
+        
