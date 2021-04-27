@@ -6,5 +6,8 @@ USE intercollegiateathletic;
 -- result if the event request has more than one related 
 -- event plan with a work date in December 2018.
 SELECT eventrequest.eventno, eventrequest.dateheld,
-		COUNT(eventplan.PlanNo) AS NUM_EVENT_PLANS
-	FROM eventrequest, eventplan;
+		COUNT(eventplans.PlanNo) AS numEventPlans
+	FROM eventrequest, eventplans
+    WHERE eventrequest.eventno = eventplans.eventno
+    GROUP BY EventRequest.EventNo, eventrequest.dateheld
+    HAVING numEventPlans > 1;
