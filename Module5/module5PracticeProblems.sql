@@ -1,4 +1,4 @@
--- MySQL responses
+-- MGD MySQL responses
 
 USE Intercollegiateathletic;
 
