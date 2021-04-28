@@ -1,5 +1,7 @@
 USE intercollegiateathletic;
 
+
+-- *** SELECT Statement Problems ***
 -- Problem 1
 -- For event requests, list the event number, event date (eventrequest.dateheld), 
 -- and count of the event plans.  Only include event requests in the 
@@ -61,4 +63,16 @@ SELECT eventplans.planno, eventplans.activity,
         AND eventplanlines.resno = resourcetable.resno
         AND facname = "Basketball arena"
         AND activity = "Operation";
-        
+
+
+-- *** Database Modification Problems ***
+-- Problem 1
+-- Insert a new row into the Facility table with facility name “Swimming Pool”.
+
+-- Problem 2
+
+-- Problem 3
+
+-- Problem 4
+
+-- Problem 5
