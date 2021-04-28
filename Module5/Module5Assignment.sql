@@ -68,6 +68,9 @@ SELECT eventplans.planno, eventplans.activity,
 -- *** Database Modification Problems ***
 -- Problem 1
 -- Insert a new row into the Facility table with facility name “Swimming Pool”.
+INSERT INTO facility
+	(facno, facname)
+VALUES ("ABCMGD", "Swimming Pool");
 
 -- Problem 2
 
