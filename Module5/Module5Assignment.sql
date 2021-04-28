@@ -75,12 +75,28 @@ SELECT eventplans.planno, eventplans.activity,
 -- Problem 2
 -- Insert a new row in the Location table related to the Facility row in modification problem 1. 
 -- The new row should have “Door” for the location name.
-INSERT INTO location
-	(locno, facno, locname)
-VALUES ("locMGD", "ABCMGD", "Door");
+-- INSERT INTO location
+-- 	(locno, facno, locname)
+-- VALUES ("locMGD", "ABCMGD", "Door");
 
 -- Problem 3
+-- Insert a new row in the Location table related to the Facility row in modification problem 1. 
+-- The new row should have “Locker Room” for the location name.
+-- INSERT INTO location
+-- 	(locno, facno, locname)
+-- VALUES ("locMGD2", "ABCMGD", "Locker Room");
 
 -- Problem 4
-
+-- Change the location name of “Door” to “Gate” for the row inserted in 
+-- modification problem 2. In MySQL, you need to place the UPDATE statement between two SET statements.
+SET SQL_SAFE_UPDATES = 0;
+-- UPDATE location 
+--   SET locname = "Gate"
+--   WHERE locno = "locMGD";
+  
 -- Problem 5
+-- Delete the row inserted in modification problem 3.
+DELETE FROM location
+  WHERE locno = 'locMGD2';
+  
+SET SQL_SAFE_UPDATES = 1;
