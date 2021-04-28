@@ -42,5 +42,23 @@ SELECT eventrequest.eventno, dateheld, status, estcost,
         AND eventplans.empno = employee.empno
         AND facname = "Basketball arena"
         AND empname = "Mary Manager";
-
+        
+-- Problem 4
+-- List the plan number, line number, resource name, number of resources (eventplanline.number), 
+-- location name, time start, and time end where the event is held at the basketball arena, 
+-- the event plan has activity of activity of “Operation”, and the event plan has a work date in the period October 1 to December 31, 2018.  
+-- Your query must not use the facility number (“F101”) of the basketball arena in the WHERE clause. Instead, 
+-- you should use a condition on the FacName column for the value of “Basketball arena”.
+SELECT eventplans.planno, eventplans.activity, 
+        facility.facname,
+        eventplanlines.lineno, eventplanlines.resno, eventplanlines.numberfld,
+        eventplanlines.timestart, eventplanlines.timeend,
+        location.locname,
+        resourcetable.resname
+	FROM eventplans, eventplanlines, facility, location, resourcetable
+    WHERE eventplans.planno = eventplanlines.planno
+		AND eventplanlines.locno = location.locno
+        AND eventplanlines.resno = resourcetable.resno
+        AND facname = "Basketball arena"
+        AND activity = "Operation";
         
